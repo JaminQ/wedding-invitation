@@ -1,0 +1,158 @@
+.desc {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.part {
+    position: relative;
+    margin: 20rpx 0 60rpx 0;
+}
+
+.part-title {
+    position: relative;
+    top: 0;
+    left: 20rpx;
+    transform: translateY(50%);
+    display: inline-block;
+    padding: 10rpx 24rpx;
+    color: white;
+    background-color: rgb(133, 22, 14);
+    font-size: 28rpx;
+}
+
+.part-main {
+    border: 2rpx solid rgba(133, 22, 14, .9);
+    padding: 40rpx;
+}
+
+.couple {
+    display: flex;
+    margin: 20rpx 0;
+}
+
+.couple view {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone {
+    background-color: rgba(133, 22, 14, .9);
+    border-radius: 20rpx;
+    font-size: 24rpx;
+    color: white;
+    width: 196rpx !important;
+    height: 56rpx;
+    line-height: 1;
+    font-weight: normal;
+    margin-top: -52rpx;
+    padding: 16rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rpx;
+}
+
+.phone:active {
+    background-color: rgba(133, 22, 14, 1);
+}
+
+.phone-icon {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.call-item {
+    background-color: #eee;
+    border-radius: 20rpx;
+    padding-left: 40rpx;
+    overflow: hidden;
+    height: 70rpx;
+    line-height: 70rpx;
+    margin: 40rpx 0;
+}
+
+.call-item:last-child {
+    margin-bottom: 0;
+}
+
+.call-item button {
+    float: right;
+    background-color: rgba(133, 22, 14, .9);
+    border-radius: 0 20rpx 20rpx 0;
+    font-size: 24rpx;
+    width: 120rpx !important;
+    height: 100%;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.call-item button:active {
+    background-color: rgba(133, 22, 14, 1);
+}
+
+.map {
+    margin: 20rpx 0 60rpx 0;
+}
+
+.map:last-child {
+    margin-bottom: 0;
+}
+
+.map-title {
+    padding: 10rpx;
+}
+
+.map-wrap {
+    position: relative;
+    margin-top: 10rpx;
+}
+
+map {
+    width: 100%;
+    height: 270rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.map-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.file {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    margin: 20rpx 0 40rpx 0;
+    padding: 0 20rpx 0 40rpx;
+    background-color: #eee;
+}
+
+.file:last-child {
+    margin-bottom: 0;
+}
+
+.file:active {
+    background-color: #ddd;
+}
+
+.file image {
+    width: 64rpx;
+    height: 64rpx;
+    margin-left: auto;
+}
+
+.info-list {
+    margin: 20rpx 0 40rpx 0;
+}
+
+.info-list:last-child {
+    margin-bottom: 0;
+}

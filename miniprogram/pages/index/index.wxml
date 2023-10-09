@@ -1,0 +1,353 @@
+<view class="title">
+    <view>好久不见，婚礼见丨XXX&XXX</view>
+    <view>我们结婚啦~</view>
+</view>
+
+<view class="desc">
+    <text class="author">XXXX</text>
+    <text class="date">YYYY-MM-DD HH:mm</text>
+</view>
+
+<view class="cover-wrap">
+    <image class="img-cover-word" src="https://h5cdn.hunbei.com/editorCustomPic/2023-5-5-XpF8Q3dtRTsbfzTY8WwBwFWpDhiGPe5k?imageMogr2/auto-orient/thumbnail/747x693>" mode="aspectFit" />
+    <view class="cover">
+        <image class="img-invitation" src="https://h5cdn.hunbei.com/editorCustomPic/2022-11-4-N87SPKmaSQW7kZ3i7ZH4QHeMXpYhZzDs.png?imageMogr2/auto-orient/crop/!1455x384a457a363/quality/90|imageMogr2/thumbnail/659x174>" mode="aspectFit" />
+        <image class="img-cover" src="{{ imgs.cover }}" mode="aspectFit" />
+    </view>
+    <view class="lh15">斯人若如虹，遇上方知有</view>
+</view>
+
+<view class="music">
+    <view class="music-controls {{ musicIsPaused ? 'paused' : '' }}" bindtap="toggleMusic">
+        <image src="../../images/music.png" mode="aspectFit" />
+    </view>
+    <view class="music-left">
+        <view class="music-title">I DO - 陈奕迅</view>
+        <view class="music-desc">已为您播放了歌曲</view>
+    </view>
+    <view class="music-right">
+        <image class="music-status" src="https://h5cdn.hunbei.com/editorCustomPic/2022-5-25-dcdPDnJmTyZs5FbjdeWdXShEEYRkN6A4.gif?imageMogr2/auto-orient/thumbnail/48x34>" mode="aspectFit" />
+        <image class="music-poster" src="{{ imgs.poster }}" mode="aspectFit" />
+    </view>
+</view>
+
+<view class="tc lh21 mb58">
+    <view>hi~亲爱的你~</view>
+    <view>当收到这封请柬的时候</view>
+    <view class="mb58">我们的婚礼已经在倒计时啦</view>
+    <view>以前觉得婚礼是一则官方公告</view>
+    <view>现在才明白</view>
+    <view>这是一场为数不多的相聚</view>
+    <view>是千里迢迢的奔赴</view>
+    <view class="mb58">是不计得失的支持</view>
+    <view>好久不见，婚礼见</view>
+    <view>❤</view>
+</view>
+
+<view class="tc lh21 mb100">
+    <image class="img-introduce" src="https://h5cdn.hunbei.com/editorCustomPic/2022-8-22-WNhBXi3ty4fw7dwFBxSZneDKYtz754ya.png?imageMogr2/auto-orient/thumbnail/542.00x58.84>" mode="aspectFit" />
+    <view class="moon">
+        <image class="img-moon" src="https://h5cdn.hunbei.com/editorCustomPic/2022-2-16-6xEP56tzDiPX53f4WZbAYR3pmwAZB7M7.png?imageMogr2/auto-orient/thumbnail/310.00x465.00>" mode="aspectFit" />
+        <image class="img-moon" src="https://h5cdn.hunbei.com/editorCustomPic/2022-2-16-TaHn8RGyJTdcwF5HGPkxrrifeFPNmPek.png?imageMogr2/auto-orient/thumbnail/310.00x464.11>" mode="aspectFit" />
+        <view class="birthday">
+            <text>YYYY.MM.DD</text>
+            <text>YYYY.MM.DD</text>
+        </view>
+    </view>
+    <view>出生时的月亮</view>
+    <view>Random luck in universe</view>
+    <view>宇宙间相遇的浪漫</view>
+</view>
+
+<view class="husband lh21 mb100">
+    <image class="img-husband" src="{{ imgs.husband }}" mode="aspectFit" />
+    <view class="husband-desc">
+        <view>/</view>
+        <view>他有 最暖的真心</view>
+        <view>细腻的心思</view>
+        <view>我一百分的男孩</view>
+    </view>
+</view>
+
+<view class="wife lh21 mb100">
+    <view class="wife-desc">
+        <view>/</view>
+        <view>YYYY.MM.DD</view>
+        <view>一见钟情</view>
+        <view>是灵魂认出了你</view>
+    </view>
+    <image class="img-wife" src="{{ imgs.wife }}" mode="aspectFit" />
+</view>
+
+<view class="tc lh21 mb100">
+    <view>我常常觉得也许这辈子</view>
+    <view>不会得到所谓的爱情了</view>
+    <view>直到</view>
+    <view>你出现了</view>
+</view>
+
+<view class="tc lh21 mb100">
+    <image class="img-separate mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-1-26-rx4ZZi3KdMErdNk4E2X3EHh3EiB3bPdY.gif?imageMogr2/auto-orient/thumbnail/864x27>" mode="aspectFit" />
+    <image class="img-wedding mb58" src="https://h5cdn.hunbei.com/editorCustomPic/2022-8-22-HsinmKrKbjrjeSYWDBi7JYMjxrNeeXtj.png?imageMogr2/auto-orient/thumbnail/507x99>/format/webp" mode="aspectFit" />
+    <swiper class="swiper-western mb58" autoplay circular interval="2500" easing-function="linear" indicator-dots>
+        <swiper-item wx:for="{{ imgs.swiper1 }}" wx:key="*this">
+            <image class="img-full-width" src="{{ item }}" mode="widthFix" />
+        </swiper-item>
+    </swiper>
+    <view>人们从诗人的字句里，</view>
+    <view>选取自己心爱的意义。</view>
+    <view>但诗句的最终意义是指向你。</view>
+    <view>                                  ——泰戈尔《吉檀迦利》</view>
+</view>
+
+<view class="tc lh21 mb152">
+    <view class="img-list mb58">
+        <image wx:for="{{ imgs.series }}" wx:key="*this" class="img-full-width" src="{{ item }}" mode="widthFix" />
+    </view>
+    <view>人生其实只要两次幸运就好</view>
+    <view>一次遇见你，一次是走到底</view>
+    <view>如今，我们决定开启人生新的篇章</view>
+    <view>让爱以夫妻之名延续</view>
+</view>
+
+<view class="leaf lh21 mb152">
+    <view class="img-row mb28">
+        <image class="img-leaf-left" src="{{ imgs.leftUp }}" mode="aspectFit" />
+        <image class="img-leaf" src="https://h5cdn.hunbei.com/editorCustomPic/2022-8-2-k8yzidKa4XYnCZdMDQWfGmaxzXreeAeP.png?imageMogr2/auto-orient/thumbnail/624x493>/format/webp" mode="aspectFit" />
+    </view>
+    <view class="img-row tc pr40">
+        <image class="img-leaf-left-down" src="{{ imgs.leftDown }}" mode="aspectFit" />
+        <view class="text">
+            <view class="line"></view>
+            <view>始于初见，</view>
+            <view>止于终老。</view>
+        </view>
+    </view>
+</view>
+
+<view class="tc lh21 mb152">
+    <view class="img-map mb100">
+        <view class="img-map-row">
+            <image class="img-map-item" src="{{ imgs.map[0] }}" mode="aspectFit" />
+            <image class="img-map-item" src="{{ imgs.map[1] }}" mode="aspectFit" />
+        </view>
+        <view class="img-map-row">
+            <image class="img-map-item" src="{{ imgs.map[2] }}" mode="aspectFit" />
+            <image class="img-map-item" src="{{ imgs.map[3] }}" mode="aspectFit" />
+        </view>
+    </view>
+    <view>不管外面的世界风雨飘摇也罢</view>
+    <view>希望我们总能以最简单的方式相伴</view>
+    <view>家人闲坐，灯火可亲</view>
+    <view>世上最有趣的事</view>
+    <view>就是和最爱的人一起虚度光阴</view>
+</view>
+
+<view class="tc lh21 mb100">
+    <swiper class="swiper-outdoor" autoplay circular interval="2500" easing-function="linear" indicator-dots>
+        <swiper-item wx:for="{{ imgs.swiper2 }}" wx:key="*this">
+            <image class="img-full-width" src="{{ item }}" mode="widthFix" />
+        </swiper-item>
+    </swiper>
+    
+    <image class="img-swiper-float" src="{{ imgs.swiper2Static }}" mode="aspectFit" />
+    <view>我们将成为彼此紧紧依靠的家人</view>
+    <view>银河系浪漫的搭车客</view>
+    <view>共同去探索广阔遥远的世界</view>
+</view>
+
+<view class="tc lh21 mb100">
+    <image class="img-separate mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-1-26-rx4ZZi3KdMErdNk4E2X3EHh3EiB3bPdY.gif?imageMogr2/auto-orient/thumbnail/864x27>" mode="aspectFit" />
+    <image class="img-you mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-8-22-PZQCrTaWTKSdJKe2Gd5FzatfyQWzZyjA.png?imageMogr2/auto-orient/thumbnail/603x118>/format/webp" mode="aspectFit" />
+    <view>人的一生有三万多天</view>
+    <view>很开心这一天</view>
+    <view>你专为我们而来</view>
+    <view>请准备好你的好心情和好胃口</view>
+    <view>来奔赴这场秋日的聚会叭~</view>
+</view>
+
+<view class="tc lh21 mb100">
+    <view class="love mb100">囍</view>
+    <swiper class="swiper-chinese mb100" autoplay circular interval="2500" easing-function="linear" indicator-dots>
+        <swiper-item wx:for="{{ imgs.swiper3 }}" wx:key="*this">
+            <image class="img-full-width" src="{{ item }}" mode="widthFix" />
+        </swiper-item>
+    </swiper>
+    <view class="mb58">XXX & XXX</view>
+    <view>携同我们的父母</view>
+    <view>邀请您出席我们的婚礼仪式</view>
+    <view>见证和分享我们的幸福时刻</view>
+</view>
+
+<view class="tc lh21 mb100">
+    <image class="img-separate mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-1-26-rx4ZZi3KdMErdNk4E2X3EHh3EiB3bPdY.gif?imageMogr2/auto-orient/thumbnail/864x27>" mode="aspectFit" />
+    <image class="img-calendar-title mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-8-22-wybCS45p5fFnRhTpQB5x48WhY4bjEDj8.png?imageMogr2/auto-orient/thumbnail/511x117>/format/webp" mode="aspectFit" />
+    <view class="calendar">
+        <view class="calendar-year">2023</view>
+        <view class="calendar-main">
+            <view class="calendar-month-day">09 <text>/</text> 20</view>
+            <view class="calendar-line calendar-week">
+                <text>一</text>
+                <text>二</text>
+                <text>三</text>
+                <text>四</text>
+                <text>五</text>
+                <text>六</text>
+                <text>日</text>
+            </view>
+            <view class="calendar-line">
+                <text class="calendar-line-offset">1</text>
+                <text>2</text>
+                <text>3</text>
+            </view>
+            <view class="calendar-line">
+                <text>4</text>
+                <text>5</text>
+                <text>6</text>
+                <text>7</text>
+                <text>8</text>
+                <text>9</text>
+                <text>10</text>
+            </view>
+            <view class="calendar-line">
+                <text>11</text>
+                <text>12</text>
+                <text>13</text>
+                <text>14</text>
+                <text>15</text>
+                <text>16</text>
+                <text>17</text>
+            </view>
+            <view class="calendar-line">
+                <text>18</text>
+                <text>19</text>
+                <text><text class="calendar-current">20</text><text class="calendar-current-dot"></text></text>
+                <text>21</text>
+                <text>22</text>
+                <text>23</text>
+                <text>24</text>
+            </view>
+            <view class="calendar-line">
+                <text>25</text>
+                <text>26</text>
+                <text>27</text>
+                <text>28</text>
+                <text>29</text>
+                <text>30</text>
+            </view>
+        </view>
+    </view>
+    <view>YYYY年MM月DD号  HH:mm</view>
+    <view>农历XX月XX  星期X</view>
+</view>
+
+<view class="location mb100">
+    <view>
+        <view>{{ location.name }}</view>
+        <view>{{ location.address }}</view>
+    </view>
+    <map longitude="{{ location.longitude }}" latitude="{{ location.latitude }}" enable-zoom="{{ false }}" enable-scroll="{{ false }}" markers="{{ location.markers }}" />
+    <view class="location-mask" bindtap="openLocation"></view>
+</view>
+
+<view class="phone mb100">
+    <view class="phone-item">
+        <image class="couple-cover" src="{{ imgs.husbandCall }}" mode="aspectFit" />
+        <button bindtap="call" data-phone="XXXXXXXXXXX"><image src="../../images/phone.png" mode="aspectFit" />联系新郎</button>
+    </view>
+    <view class="phone-item">
+        <image class="couple-cover" src="{{ imgs.wifeCall }}" mode="aspectFit" />
+        <button bindtap="call" data-phone="XXXXXXXXXXX"><image src="../../images/phone.png" mode="aspectFit" />联系新娘</button>
+    </view>
+</view>
+
+<form bindsubmit="submit">
+    <view class="form tc mb100">
+        <view>
+            <text>*</text>
+            <input type="text" placeholder="姓名" name="name" value="{{ form.name }}" placeholder-class="form-input-placeholder" maxlength="10" />
+        </view>
+        <view>
+            <text>*</text>
+            <input type="number" placeholder="出席人数" name="num" value="{{ form.num }}" placeholder-class="form-input-placeholder" maxlength="2" />
+        </view>
+        <view>
+            <textarea type="text" placeholder="祝福语，可以上墙哦~" name="greeting" value="{{ form.greeting }}" placeholder-class="form-input-placeholder" maxlength="140" disable-default-padding />
+        </view>
+        <button form-type="submit" open-type="getUserInfo">{{ name ? '更新' : '提交' }}</button>
+    </view>
+</form>
+
+<view class="tc lh21 mb100">
+    <image class="img-separate mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-1-26-rx4ZZi3KdMErdNk4E2X3EHh3EiB3bPdY.gif?imageMogr2/auto-orient/thumbnail/864x27>" mode="aspectFit" />
+    <image class="img-full-width mb100" src="{{ imgs.end1 }}" mode="widthFix" />
+    <view class="tl">
+        <view class="tips">温馨tips：</view>
+        <view>请预留好YYYY年MM月DD号这一天的行程</view>
+        <view>如果被事务牵绊或临时有变化</view>
+        <view class="mb58">请提前告知新郎/新娘</view>
+        <view>许久未见 ，甚是想念</view>
+        <view>我们，婚礼见</view>
+    </view>
+</view>
+
+<view class="tc lh21 mb152">
+    <image class="img-full-width mb100" src="{{ imgs.end2 }}" mode="widthFix" />
+    <view class="tr mb100">
+        <view>我把我的整个灵魂都给你</view>
+        <view>连同它的怪癖</view>
+        <view>耍小脾气，忽明忽暗</view>
+        <view>一千八百种坏毛病</view>
+        <view>它真讨厌</view>
+        <view class="mb58">只有一点好，爱你</view>
+        <view>/ 爱你就像爱生命 /</view>
+        <view>/ 王小波 /</view>
+    </view>
+    <image class="img-end" src="https://h5cdn.hunbei.com/editorCustomPic/2022-8-19-niYXMwfBrA5bCeRQSFnXRRKRmcSnmfEC.png?imageMogr2/auto-orient/thumbnail/519x264>/format/webp" mode="aspectFit" />
+</view>
+
+<!-- 彩蛋板块视乎个人情况决定要不要 -->
+<view class="egg tc">
+    <view class="egg-title">彩蛋<image src="../../images/egg.png" mode="aspectFit" /></view>
+    <view class="mb28">该小程序由新郎哥本人（也就是我了😎）独立完成开发，如有雷同，没错，我参考了婚贝上的一个模板，但是又不想付费，所以就干脆自己写一个，需要的小伙伴可以找我要源码哦😝</view>
+    <view class="mb28">最后是喜闻乐见的撒狗粮环节✿✿ヽ(°▽°)ノ✿，首先出场的是我们的求婚视频☺️</view>
+
+    <!-- 如果要加视频号的话记得加上单页模式的判断，单页模式下不会渲染视频号卡片，而且连个占位都没有，要自行实现占位，也就是下面wx:else的view -->
+    <!-- 另外再吐槽一句，开发者工具里居然跟单页模式一样也不会渲染视频号卡片，醉了~ -->
+    <channel-video wx:if="{{ !isSinglePage }}" class="mb58" feed-token="token/AwXInC" />
+    <view wx:else class="channel-video-placeholder">请点击下方「前往小程序」按钮来查看</view>
+
+    <view class="mb28">然后当然少不了我们在苗寨拍的艺术照啦哈哈哈哈😄</view>
+
+    <!-- 如果要加视频号的话记得加上单页模式的判断，单页模式下不会渲染视频号卡片，而且连个占位都没有，要自行实现占位，也就是下面wx:else的view -->
+    <!-- 另外再吐槽一句，开发者工具里居然跟单页模式一样也不会渲染视频号卡片，醉了~ -->
+    <channel-video wx:if="{{ !isSinglePage }}" class="mb58" feed-token="token/A8yYlo" />
+    <view wx:else class="channel-video-placeholder">请点击下方「前往小程序」按钮来查看</view>
+
+    <view class="mb28">好啦，狗粮撒到这里就差不多啦，剩下的我们留到婚礼上再呈现给大家吧，我们婚礼上见哦~💒👫🏻</view>
+    <view>未完，待续</view>
+    <view>爱，我们一直在路上</view>
+</view>
+
+<!-- 祝福语轮播以及底部快捷跳转 -->
+<view class="greetings">
+    <view class="greetings-list">
+        <view class="greetings-item {{ activeIdx === index ? 'active' : '' }}" wx:for="{{ greetings }}" wx:key="_id" bind:animationend="onAnimationend"><text class="greetings-name">{{ item.name }}：</text>{{ item.greeting }}</view>
+    </view>
+    <view class="controller">
+        <view class="controller-btn">
+            <image bindtap="goPhone" src="../../images/phone.png" mode="widthFix" />
+        </view>
+        <view class="controller-btn">
+            <image bindtap="goWrite" src="../../images/write.png" mode="widthFix" />
+        </view>
+        <view class="controller-btn">
+            <image bindtap="openLocation" src="../../images/go.png" mode="widthFix" />
+        </view>
+    </view>
+</view>
+
+<!-- 公告栏入口 -->
+<view wx:if="{{ isManager }}" class="manager">
+    <image bindtap="goInfo" src="../../images/manager.png" mode="widthFix"/>
+</view>

@@ -1,0 +1,71 @@
+/* 对齐方式 */
+.tc {
+    text-align: center;
+    justify-content: center;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tr {
+    text-align: right;
+}
+
+/* 行高 */
+
+.lh15 {
+    line-height: 1.5;
+}
+
+.lh21 {
+    line-height: 2.1;
+}
+
+/* 外边距 */
+
+.mb28 {
+    margin-bottom: 28rpx;
+}
+
+.mb58 {
+    margin-bottom: 58rpx;
+}
+
+.mb100 {
+    margin-bottom: 100rpx;
+}
+
+.mb152 {
+    margin-bottom: 152rpx;
+}
+
+/* 内边距 */
+
+.pr40 {
+    padding-right: 40rpx;
+}
+
+/* 图片 */
+
+.img-separate {
+    width: 520rpx;
+    height: 18rpx;
+}
+
+.img-full-width {
+    width: 100%;
+}
+
+/* 组件 */
+swiper {
+    width: 100% !important;
+}
+
+map {
+    margin-top: 20rpx;
+    width: 100%;
+    height: 270rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}

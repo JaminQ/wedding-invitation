@@ -1,0 +1,357 @@
+import {
+    genLocation
+} from '../common'
+
+// 管理员openid列表，可以在云开发管理页找到，是管理员的话可以看到公告栏页面入口，也可以通过云函数greetings的返回值openid来查看，还可以在本文件getGreetings方法里通过打印openid变量来查看
+const MANAGER = ['']
+
+// 背景音乐链接
+const BGM = 'https://amp3.hunbei.com/mp3/IDo_ChenYiXun.mp3'
+
+Page({
+    data: {
+        isManager: false, // 当前用户是否为管理员
+        isSinglePage: null, // 是否单页模式
+        musicIsPaused: false, // 是否暂停背景音乐
+        greetings: [], // 祝福语列表
+        activeIdx: -1, // 祝福语轮播用，当前显示的祝福语索引值
+
+        // 酒店信息
+        location: genLocation([{
+            name: '婚宴酒店名XXXXXXXX',
+            address: '详细地址XXXXXXXXXXXXXXX',
+            latitude: 23.03387641906739,
+            longitude: 113.7241439819336
+        }])[0],
+
+        // 表单信息
+        form: {
+            name: '',
+            num: '',
+            greeting: ''
+        },
+
+        // 图片信息
+        imgs: {
+            // 封面图
+            cover: 'https://res.wx.qq.com/t/fed_upload/459fb8da-b31a-420f-b8cc-f51126952685/cover.jpg',
+
+            // 音乐封面
+            poster: 'https://res.wx.qq.com/t/fed_upload/d811d254-e5d6-4c19-9ff8-77c4b6128137/poster.jpg',
+
+            // 新郎独照
+            husband: 'https://res.wx.qq.com/t/fed_upload/d811d254-e5d6-4c19-9ff8-77c4b6128137/husband.jpg',
+
+            // 新娘独照
+            wife: 'https://res.wx.qq.com/t/fed_upload/d811d254-e5d6-4c19-9ff8-77c4b6128137/wife.jpg',
+
+            // 轮播图1
+            swiper1: [
+                'https://res.wx.qq.com/t/fed_upload/849dfcf2-049a-42ba-9f6c-ddd6f30b8487/swiper1-1.jpg',
+                'https://res.wx.qq.com/t/fed_upload/849dfcf2-049a-42ba-9f6c-ddd6f30b8487/swiper1-2.jpg',
+                'https://res.wx.qq.com/t/fed_upload/849dfcf2-049a-42ba-9f6c-ddd6f30b8487/swiper1-3.jpg'
+            ],
+
+            // 连续图
+            series: [
+                'https://res.wx.qq.com/t/fed_upload/c707cb28-126b-4a5d-89f6-688551456d15/series1.jpg',
+                'https://res.wx.qq.com/t/fed_upload/c707cb28-126b-4a5d-89f6-688551456d15/series2.jpg',
+                'https://res.wx.qq.com/t/fed_upload/c707cb28-126b-4a5d-89f6-688551456d15/series3.jpg'
+            ],
+
+            // 左上图
+            leftUp: 'https://res.wx.qq.com/t/fed_upload/50898c02-4dd4-480a-ba6c-b175461b7b31/left-up.jpg',
+
+            // 左下图
+            leftDown: 'https://res.wx.qq.com/t/fed_upload/50898c02-4dd4-480a-ba6c-b175461b7b31/left-down.jpg',
+
+            // 四宫图
+            map: [
+                'https://res.wx.qq.com/t/fed_upload/b959a506-ca42-47e1-9fbd-732a6151e3d9/map1.jpg',
+                'https://res.wx.qq.com/t/fed_upload/b959a506-ca42-47e1-9fbd-732a6151e3d9/map2.jpg',
+                'https://res.wx.qq.com/t/fed_upload/b959a506-ca42-47e1-9fbd-732a6151e3d9/map3.jpg',
+                'https://res.wx.qq.com/t/fed_upload/b959a506-ca42-47e1-9fbd-732a6151e3d9/map4.jpg'
+            ],
+
+            // 轮播图2
+            swiper2: [
+                'https://res.wx.qq.com/t/fed_upload/65134c0f-c513-410e-b4ff-ab738801540f/swiper2-1.jpg',
+                'https://res.wx.qq.com/t/fed_upload/65134c0f-c513-410e-b4ff-ab738801540f/swiper2-2.jpg',
+                'https://res.wx.qq.com/t/fed_upload/65134c0f-c513-410e-b4ff-ab738801540f/swiper2-3.jpg'
+            ],
+
+            // 轮播图2下方常驻图
+            swiper2Static: 'https://res.wx.qq.com/t/fed_upload/30d86ea7-84b8-46ce-ae60-e31b83a04fcc/swiper2-static.jpg',
+
+            // 轮播图3
+            swiper3: [
+                'https://res.wx.qq.com/t/fed_upload/77b990f0-6f16-4fa2-8163-ad0eac3e40da/swiper3-1.jpg',
+                'https://res.wx.qq.com/t/fed_upload/77b990f0-6f16-4fa2-8163-ad0eac3e40da/swiper3-2.jpg',
+                'https://res.wx.qq.com/t/fed_upload/77b990f0-6f16-4fa2-8163-ad0eac3e40da/swiper3-3.jpg'
+            ],
+
+            // 新郎单人照
+            husbandCall: 'https://res.wx.qq.com/t/fed_upload/52557f40-32f9-4b37-9115-eed527e55683/husband.jpg',
+
+            // 新娘单人照
+            wifeCall: 'https://res.wx.qq.com/t/fed_upload/e4ddf6ce-990c-45b1-b4e9-bdf6a6b498ac/wife.jpg',
+
+            // 结尾图1
+            end1: 'https://res.wx.qq.com/t/fed_upload/9b5bad9c-216b-4fd5-a3da-01bdb3a5e832/end1.jpg',
+
+            // 结尾图2
+            end2: 'https://res.wx.qq.com/t/fed_upload/9b5bad9c-216b-4fd5-a3da-01bdb3a5e832/end2.jpg'
+        }
+    },
+
+    // 小程序加载时，拉取表单信息并填充
+    onLoad() {
+        this.timer = null
+        this.music = null
+        this.isSubmit = false
+
+        const db = wx.cloud.database()
+        db.collection('surveys').get({
+            success: res => {
+                if (res.data.length) {
+                    const {
+                        name,
+                        num,
+                        greeting
+                    } = res.data[0]
+                    this.setData({
+                        form: {
+                            name,
+                            num,
+                            greeting
+                        }
+                    })
+                }
+            }
+        })
+    },
+
+    // 小程序卸载时，取消自动拉取祝福语定时器，销毁背景音乐
+    onUnload() {
+        if (this.timer !== null) {
+            clearInterval(this.timer)
+            this.timer = null
+        }
+
+        if (this.music !== null) {
+            this.music.destroy()
+            this.music = null
+        }
+    },
+
+    // 小程序可见时，拉取祝福语，并设置定时器每20s重新拉取一次祝福语，以及判断是否为单页模式
+    onShow() {
+        this.getGreetings()
+
+        this.timer === null && (this.timer = setInterval(() => this.getGreetings(), 20000));
+
+        if (typeof this.data.isSinglePage !== 'boolean') { // 没有判断过是否单页模式，则判断一下
+            const {
+                scene
+            } = wx.getEnterOptionsSync()
+            this.setData({
+                isSinglePage: scene === 1154
+            })
+        }
+    },
+
+    // 小程序不可见时，取消自动拉取祝福语定时器
+    onHide() {
+        if (this.timer !== null) {
+            clearInterval(this.timer)
+            this.timer = null
+        }
+    },
+
+    // 小程序可用时，初始化背景音乐并自动播放
+    onReady() {
+        if (this.music === null) {
+            this.music = wx.createInnerAudioContext({
+                useWebAudioImplement: false
+            })
+            this.music.src = BGM
+            this.music.loop = true
+            this.music.autoplay = true
+        }
+    },
+
+    // 分享到会话
+    onShareAppMessage() {
+        return {
+            title: '好久不见，婚礼见٩(๑^o^๑)۶',
+            imageUrl: '../../images/shareAppMsg.jpg'
+        }
+    },
+
+    // 分享到朋友圈
+    onShareTimeline() {
+        return {
+            title: '好久不见，婚礼见٩(๑^o^๑)۶',
+            imageUrl: '../../images/shareTimeline.jpg'
+        }
+    },
+
+    // 点击右上角音乐按钮控制音频播放和暂停
+    toggleMusic() {
+        if (this.music.paused) {
+            this.music.play()
+            this.setData({
+                musicIsPaused: false
+            })
+        } else {
+            this.music.pause()
+            this.setData({
+                musicIsPaused: true
+            })
+        }
+    },
+
+    // 打开酒店定位
+    openLocation() {
+        const {
+            latitude,
+            longitude,
+            name,
+            address
+        } = this.data.location
+        wx.openLocation({
+            latitude,
+            longitude,
+            name,
+            address
+        })
+    },
+
+    // 呼叫
+    call(e) {
+        wx.makePhoneCall({
+            phoneNumber: e.target.dataset.phone
+        })
+    },
+
+    // 提交表单
+    submit(e) {
+        if (!this.isSubmit) {
+            const {
+                name,
+                num
+            } = e.detail.value
+            if (name === '') {
+                wx.showToast({
+                    title: '要写上名字哦~',
+                    icon: 'error'
+                })
+            } else if (num === '') {
+                wx.showToast({
+                    title: '要写上人数哦~',
+                    icon: 'error'
+                })
+            } else if (!/^[1-9]\d*$/.test(num)) {
+                wx.showToast({
+                    title: '人数不对哦~',
+                    icon: 'error'
+                })
+            } else {
+                this.isSubmit = true
+                const wording = this.data.form.name ? '更新' : '提交';
+                wx.showLoading({
+                    title: `${wording}中`
+                })
+                wx.cloud.callFunction({
+                    name: 'surveys',
+                    data: e.detail.value
+                }).then(({
+                    result: {
+                        name,
+                        num,
+                        greeting,
+                        _id
+                    }
+                }) => {
+                    const greetings = this.data.greetings
+                    !greetings.some(item => {
+                        if (item._id === _id) { // 如果找到了该祝福语，更新之
+                            item.greeting = greeting
+                            return true
+                        }
+                        return false
+                    }) && greetings.push({ // 如果没有找到，追加之
+                        name,
+                        greeting,
+                        _id
+                    })
+                    this.setData({
+                        form: {
+                            name,
+                            num,
+                            greeting
+                        },
+                        greetings
+                    })
+                    this.isSubmit = false
+                    wx.showToast({
+                        title: `${wording}成功`,
+                        icon: 'success'
+                    })
+                })
+            }
+        }
+    },
+
+    // 获取祝福语
+    getGreetings() {
+        wx.cloud.callFunction({
+            name: 'greetings'
+        }).then(({
+            result: {
+                greetings,
+                openid
+            }
+        }) => {
+            const isManager = MANAGER.indexOf(openid) > -1
+            greetings.length && this.setData(this.data.activeIdx === -1 ? {
+                isManager,
+                greetings,
+                activeIdx: 0
+            } : {
+                isManager,
+                greetings
+            })
+        })
+    },
+
+    // 轮播动画结束时切换到下一个
+    onAnimationend() {
+        this.setData({
+            activeIdx: (this.data.activeIdx === this.data.greetings.length - 1) ? 0 : (this.data.activeIdx + 1)
+        })
+    },
+
+    // 跳转到联系新郎新娘板块
+    goPhone() {
+        wx.pageScrollTo({
+            selector: '.phone',
+            offsetTop: -200
+        })
+    },
+
+    // 跳转到写表单板块
+    goWrite() {
+        wx.pageScrollTo({
+            selector: '.form',
+            offsetTop: -200
+        })
+    },
+
+    // 跳转到公告栏页面
+    goInfo() {
+        wx.navigateTo({
+            url: '../info/index'
+        })
+    }
+})
