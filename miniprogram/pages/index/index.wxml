@@ -1,11 +1,11 @@
 <view class="title">
-    <view>好久不见，婚礼见丨XXX&XXX</view>
+    <view>好久不见，婚礼见丨{{ couple[0].name }}&{{ couple[1].name }}</view>
     <view>我们结婚啦~</view>
 </view>
 
 <view class="desc">
-    <text class="author">XXXX</text>
-    <text class="date">YYYY-MM-DD HH:mm</text>
+    <text class="author">{{ publisher }}</text>
+    <text class="date">{{ weddingTimeStr[0] }}</text>
 </view>
 
 <view class="cover-wrap">
@@ -22,7 +22,7 @@
         <image src="../../images/music.png" mode="aspectFit" />
     </view>
     <view class="music-left">
-        <view class="music-title">I DO - 陈奕迅</view>
+        <view class="music-title">{{ music.name }} - {{ music.singer }}</view>
         <view class="music-desc">已为您播放了歌曲</view>
     </view>
     <view class="music-right">
@@ -50,8 +50,7 @@
         <image class="img-moon" src="https://h5cdn.hunbei.com/editorCustomPic/2022-2-16-6xEP56tzDiPX53f4WZbAYR3pmwAZB7M7.png?imageMogr2/auto-orient/thumbnail/310.00x465.00>" mode="aspectFit" />
         <image class="img-moon" src="https://h5cdn.hunbei.com/editorCustomPic/2022-2-16-TaHn8RGyJTdcwF5HGPkxrrifeFPNmPek.png?imageMogr2/auto-orient/thumbnail/310.00x464.11>" mode="aspectFit" />
         <view class="birthday">
-            <text>YYYY.MM.DD</text>
-            <text>YYYY.MM.DD</text>
+            <text wx:for="{{ couple }}" wx:key="name">{{ item.birthday }}</text>
         </view>
     </view>
     <view>出生时的月亮</view>
@@ -72,7 +71,7 @@
 <view class="wife lh21 mb100">
     <view class="wife-desc">
         <view>/</view>
-        <view>YYYY.MM.DD</view>
+        <view>{{ anniversary }}</view>
         <view>一见钟情</view>
         <view>是灵魂认出了你</view>
     </view>
@@ -163,7 +162,7 @@
     <view>很开心这一天</view>
     <view>你专为我们而来</view>
     <view>请准备好你的好心情和好胃口</view>
-    <view>来奔赴这场秋日的聚会叭~</view>
+    <view>来奔赴这场{{ weddingTimeStr[1] }}日的聚会叭~</view>
 </view>
 
 <view class="tc lh21 mb100">
@@ -173,7 +172,7 @@
             <image class="img-full-width" src="{{ item }}" mode="widthFix" />
         </swiper-item>
     </swiper>
-    <view class="mb58">XXX & XXX</view>
+    <view class="mb58">{{ couple[0].name }} & {{ couple[1].name }}</view>
     <view>携同我们的父母</view>
     <view>邀请您出席我们的婚礼仪式</view>
     <view>见证和分享我们的幸福时刻</view>
@@ -182,63 +181,9 @@
 <view class="tc lh21 mb100">
     <image class="img-separate mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-1-26-rx4ZZi3KdMErdNk4E2X3EHh3EiB3bPdY.gif?imageMogr2/auto-orient/thumbnail/864x27>" mode="aspectFit" />
     <image class="img-calendar-title mb100" src="https://h5cdn.hunbei.com/editorCustomPic/2022-8-22-wybCS45p5fFnRhTpQB5x48WhY4bjEDj8.png?imageMogr2/auto-orient/thumbnail/511x117>/format/webp" mode="aspectFit" />
-    <view class="calendar">
-        <view class="calendar-year">2023</view>
-        <view class="calendar-main">
-            <view class="calendar-month-day">09 <text>/</text> 20</view>
-            <view class="calendar-line calendar-week">
-                <text>一</text>
-                <text>二</text>
-                <text>三</text>
-                <text>四</text>
-                <text>五</text>
-                <text>六</text>
-                <text>日</text>
-            </view>
-            <view class="calendar-line">
-                <text class="calendar-line-offset">1</text>
-                <text>2</text>
-                <text>3</text>
-            </view>
-            <view class="calendar-line">
-                <text>4</text>
-                <text>5</text>
-                <text>6</text>
-                <text>7</text>
-                <text>8</text>
-                <text>9</text>
-                <text>10</text>
-            </view>
-            <view class="calendar-line">
-                <text>11</text>
-                <text>12</text>
-                <text>13</text>
-                <text>14</text>
-                <text>15</text>
-                <text>16</text>
-                <text>17</text>
-            </view>
-            <view class="calendar-line">
-                <text>18</text>
-                <text>19</text>
-                <text><text class="calendar-current">20</text><text class="calendar-current-dot"></text></text>
-                <text>21</text>
-                <text>22</text>
-                <text>23</text>
-                <text>24</text>
-            </view>
-            <view class="calendar-line">
-                <text>25</text>
-                <text>26</text>
-                <text>27</text>
-                <text>28</text>
-                <text>29</text>
-                <text>30</text>
-            </view>
-        </view>
-    </view>
-    <view>YYYY年MM月DD号  HH:mm</view>
-    <view>农历XX月XX  星期X</view>
+    <calendar id="calendar" date="{{ weddingTime }}"></calendar>
+    <view>{{ weddingTimeStr[2] }}</view>
+    <view>{{ weddingTimeStr[3] }}</view>
 </view>
 
 <view class="location mb100">
@@ -251,13 +196,9 @@
 </view>
 
 <view class="phone mb100">
-    <view class="phone-item">
-        <image class="couple-cover" src="{{ imgs.husbandCall }}" mode="aspectFit" />
-        <button bindtap="call" data-phone="XXXXXXXXXXX"><image src="../../images/phone.png" mode="aspectFit" />联系新郎</button>
-    </view>
-    <view class="phone-item">
-        <image class="couple-cover" src="{{ imgs.wifeCall }}" mode="aspectFit" />
-        <button bindtap="call" data-phone="XXXXXXXXXXX"><image src="../../images/phone.png" mode="aspectFit" />联系新娘</button>
+    <view class="phone-item" wx:for="{{ couple }}" wx:key="name">
+        <image class="couple-cover" src="{{ item.image }}" mode="aspectFit" />
+        <button bindtap="call" data-phone="{{ item.number }}"><image src="../../images/phone.png" mode="aspectFit" />联系{{ item.alias }}</button>
     </view>
 </view>
 
@@ -283,7 +224,7 @@
     <image class="img-full-width mb100" src="{{ imgs.end1 }}" mode="widthFix" />
     <view class="tl">
         <view class="tips">温馨tips：</view>
-        <view>请预留好YYYY年MM月DD号这一天的行程</view>
+        <view>请预留好{{ weddingTimeStr[4] }}这一天的行程</view>
         <view>如果被事务牵绊或临时有变化</view>
         <view class="mb58">请提前告知新郎/新娘</view>
         <view>许久未见 ，甚是想念</view>

@@ -1,0 +1,75 @@
+.calendar {
+    width: 576rpx;
+    border: 20rpx solid rgb(133, 22, 14);
+    margin: 0 auto 152rpx;
+    padding: 72rpx;
+    color: rgb(133, 22, 14);
+    line-height: 1;
+    box-sizing: border-box;
+    position: relative;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.calendar-year {
+    position: absolute;
+    font-size: 130rpx;
+    opacity: .1;
+    font-weight: 600;
+    left: 50%;
+    top: 314rpx;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.calendar-main {
+    position: relative;
+    z-index: 10;
+}
+
+.calendar-month-day {
+    font-size: 72rpx;
+    text-align: left;
+    margin-bottom: 60rpx;
+}
+
+.calendar-month-day text {
+    font-size: 32rpx;
+}
+
+.calendar-week {
+    font-weight: 600;
+}
+
+.calendar-line {
+    display: flex;
+    font-size: 24rpx;
+    margin-top: 16rpx;
+}
+
+.calendar-line text {
+    width: 56rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    position: relative;
+}
+
+.calendar-current {
+    position: relative;
+    z-index: 20;
+    color: white;
+}
+
+.calendar-line text .calendar-current-dot {
+    position: absolute;
+    display: block;
+    width: 56rpx;
+    height: 56rpx;
+    background-color: rgb(133, 22, 14);
+    top: -6rpx;
+    border-radius: 50%;
+    z-index: 11;
+    -webkit-animation: jumpheart .8s ease infinite alternate;
+    animation: jumpheart .8s ease infinite alternate;
+}

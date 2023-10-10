@@ -1,20 +1,34 @@
-import {
+const {
     genLocation
-} from '../common'
+} = require('../common')
 
 // 管理员openid列表，可以在云开发管理页找到，是管理员的话可以看到公告栏页面入口，也可以通过云函数greetings的返回值openid来查看，还可以在本文件getGreetings方法里通过打印openid变量来查看
 const MANAGER = ['']
 
-// 背景音乐链接
-const BGM = 'https://amp3.hunbei.com/mp3/IDo_ChenYiXun.mp3'
+const APP = getApp()
 
 Page({
     data: {
+        ...APP.globalData,
         isManager: false, // 当前用户是否为管理员
         isSinglePage: null, // 是否单页模式
         musicIsPaused: false, // 是否暂停背景音乐
         greetings: [], // 祝福语列表
         activeIdx: -1, // 祝福语轮播用，当前显示的祝福语索引值
+        form: { // 表单信息
+            name: '',
+            num: '',
+            greeting: ''
+        },
+        weddingTimeStr: [], // 格式化的婚礼日期列表
+
+        // 以上变量都不用动，以下变量是需要手动修改的
+        // 背景音乐
+        music: {
+            src: 'https://amp3.hunbei.com/mp3/IDo_ChenYiXun.mp3', // 音频资源链接
+            name: 'I DO', // 歌名
+            singer: '陈奕迅' // 歌手名
+        },
 
         // 酒店信息
         location: genLocation([{
@@ -23,13 +37,6 @@ Page({
             latitude: 23.03387641906739,
             longitude: 113.7241439819336
         }])[0],
-
-        // 表单信息
-        form: {
-            name: '',
-            num: '',
-            greeting: ''
-        },
 
         // 图片信息
         imgs: {
@@ -104,7 +111,7 @@ Page({
         }
     },
 
-    // 小程序加载时，拉取表单信息并填充
+    // 小程序加载时，拉取表单信息并填充，以及格式化各种婚礼时间
     onLoad() {
         this.timer = null
         this.music = null
@@ -128,6 +135,17 @@ Page({
                     })
                 }
             }
+        })
+
+        this.lunisolarDate = this.selectComponent('#calendar').lunisolarDate
+        this.setData({
+            weddingTimeStr: [
+                this.lunisolarDate.format('YYYY-MM-DD HH:mm'),
+                this.lunisolarDate.getSeason(),
+                this.lunisolarDate.format('YYYY年MM月DD号  HH:mm'),
+                this.lunisolarDate.format('农历lMlD  dddd'),
+                this.lunisolarDate.format('YYYY年MM月DD号')
+            ]
         })
     },
 
@@ -174,7 +192,7 @@ Page({
             this.music = wx.createInnerAudioContext({
                 useWebAudioImplement: false
             })
-            this.music.src = BGM
+            this.music.src = this.data.music.src
             this.music.loop = true
             this.music.autoplay = true
         }

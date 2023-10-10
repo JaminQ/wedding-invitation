@@ -6,7 +6,7 @@
         <view class="couple">
             <view wx:for="{{ couple }}" wx:key="name">
                 <image class="couple-cover" src="{{ item.image }}" mode="aspectFit" />
-                <button class="phone" bindtap="call" data-phone="{{ item.number }}"><image class="phone-icon" src="../../images/phone.png" mode="aspectFit" />联系{{ item.name }}</button>
+                <button class="phone" bindtap="call" data-phone="{{ item.number }}"><image class="phone-icon" src="../../images/phone.png" mode="aspectFit" />联系{{ item.alias }}</button>
             </view>
         </view>
 

@@ -1,6 +1,8 @@
-import {
+const {
     genLocation
-} from '../common'
+} = require('../common')
+
+const couple = getApp().globalData.couple
 
 Page({
     data: {
@@ -8,15 +10,7 @@ Page({
         desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 
         // 新郎新娘联系方式
-        couple: [{
-            image: 'https://res.wx.qq.com/t/fed_upload/52557f40-32f9-4b37-9115-eed527e55683/husband.jpg',
-            name: '新郎',
-            number: 'XXXXXXXXXXX'
-        }, {
-            image: 'https://res.wx.qq.com/t/fed_upload/e4ddf6ce-990c-45b1-b4e9-bdf6a6b498ac/wife.jpg',
-            name: '新娘',
-            number: 'XXXXXXXXXXX'
-        }],
+        couple,
 
         // 其余人员联系方式
         phone: [{
@@ -46,7 +40,7 @@ Page({
 
         // 其它事项
         info: [
-            '各位需要过夜的兄弟姐妹酒店已安排好，入住时报新郎名字和手机号码即可（XXX，XXXXXXXXXXX），酒店有停车场，可免费停车，除了伴娘阿卡是单人间以外其他人都是双床房',
+            `各位需要过夜的兄弟姐妹酒店已安排好，入住时报新郎名字和手机号码即可（${couple[0].name}，${couple[0].number}），酒店有停车场，可免费停车，除了伴娘阿卡是单人间以外其他人都是双床房`,
             '兄弟团先去洗头做发型再到我家集合，尽量8点半前到，实在有事的话最晚9点到，兄弟们把控好时间哈，辛苦大家',
             '最后的最后，文明接亲，欢乐接亲，希望大家多多配合，有什么需要，请联系帅气的新郎哥和美丽的新娘子，如有疏漏，请多多包涵'
         ]
