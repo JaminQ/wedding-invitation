@@ -2,12 +2,15 @@ const {
     genLocation
 } = require('../common')
 
-const couple = getApp().globalData.couple
+const {
+    couple,
+    publisher
+} = getApp().globalData
 
 Page({
     data: {
         // 公告栏描述
-        desc: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        desc: `帅哥靓女们都来看看，这里有「${publisher}」婚礼的第一手资料，接亲、婚宴细节全爆料！千万不要错过啊！！！`,
 
         // 新郎新娘联系方式
         couple,
