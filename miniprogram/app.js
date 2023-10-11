@@ -5,13 +5,13 @@ App({
 
         // 新郎新娘信息
         couple: [{
-            image: 'https://res.wx.qq.com/t/fed_upload/52557f40-32f9-4b37-9115-eed527e55683/husband.jpg',
+            image: 'https://res.wx.qq.com/t/fed_upload/52557f40-32f9-4b37-9115-eed527e55683/husband.jpg', // 新郎单人照
             name: '周杰伦',
             alias: '新郎',
             number: 'XXXXXXXXXXX',
             birthday: '1979.01.18'
         }, {
-            image: 'https://res.wx.qq.com/t/fed_upload/e4ddf6ce-990c-45b1-b4e9-bdf6a6b498ac/wife.jpg',
+            image: 'https://res.wx.qq.com/t/fed_upload/e4ddf6ce-990c-45b1-b4e9-bdf6a6b498ac/wife.jpg', // 新娘单人照
             name: '昆凌',
             alias: '新娘',
             number: 'XXXXXXXXXXX',
