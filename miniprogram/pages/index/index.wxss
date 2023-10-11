@@ -500,16 +500,6 @@
     height: 40rpx;
 }
 
-.channel-video-placeholder {
-    width: 480rpx;
-    height: 360rpx;
-    margin: 0 auto 58rpx;
-    border: 2rpx solid #b8b8b8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .greetings {
     position: fixed;
     bottom: 60rpx;

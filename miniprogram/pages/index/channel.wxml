@@ -1,0 +1,17 @@
+<!-- 使用官方的channel-video组件 -->
+<block wx:if="{{ useChannelVideo }}">
+    <!-- 需要加上单页模式的判断，单页模式下不会渲染视频号卡片，而且连个占位都没有，要自行实现占位，也就是下面的.channel-video-placeholder -->
+    <!-- 另外再吐槽一句，开发者工具里居然跟单页模式一样也不会渲染视频号卡片，也是醉了 -->
+    <channel-video wx:if="{{ !isSinglePage }}" finder-user-name="{{ finderUserName }}" feed-id="{{ feedId }}" feed-token="{{ feedToken }}"></channel-video>
+    <view wx:else class="channel channel-video-placeholder">请点击底部「前往小程序」按钮来查看</view>
+</block>
+
+<!-- 使用自行实现的视频号模拟组件 -->
+<view wx:else class="channel" bindtap="openChannel">
+    <image class="channel-poster" src="{{ poster }}" mode="aspectFit" />
+    <image class="channel-play" src="../../images/play.png" mode="aspectFit" />
+    <view class="channel-nickname">
+        <image class="channel-logo" src="../../images/channel.png" mode="aspectFit" />
+        <text>{{ nickname }}</text>
+    </view>
+</view>

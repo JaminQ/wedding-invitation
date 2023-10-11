@@ -1,5 +1,9 @@
 App({
     globalData: {
+        isSinglePage: null, // 是否单页模式
+
+        // 以上变量都不用动，以下变量是需要手动修改的
+
         // 婚礼日期时间
         weddingTime: '2023-09-20 17:00:00',
 
@@ -22,12 +26,23 @@ App({
         publisher: '杰伦昆凌',
 
         // 纪念日
-        anniversary: '2021.12.11',
+        anniversary: '2021.12.11'
     },
 
+    // 小程序启动时，初始化云开发环境
     onLaunch() {
         wx.cloud.init({
             env: 'xxxxxxx' // 云开发环境ID，在云开发控制台里可以查看
         })
+    },
+
+    // 小程序可见时，判断是否为单页模式
+    onShow() {
+        if (typeof this.globalData.isSinglePage !== 'boolean') { // 没有判断过是否单页模式，则判断一下
+            const {
+                scene
+            } = wx.getEnterOptionsSync()
+            this.globalData.isSinglePage = scene === 1154
+        }
     }
 })

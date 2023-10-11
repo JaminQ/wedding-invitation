@@ -11,7 +11,6 @@ Page({
     data: {
         ...APP.globalData,
         isManager: false, // 当前用户是否为管理员
-        isSinglePage: null, // 是否单页模式
         musicIsPaused: false, // 是否暂停背景音乐
         greetings: [], // 祝福语列表
         activeIdx: -1, // 祝福语轮播用，当前显示的祝福语索引值
@@ -23,6 +22,7 @@ Page({
         weddingTimeStr: [], // 格式化的婚礼日期列表
 
         // 以上变量都不用动，以下变量是需要手动修改的
+
         // 背景音乐
         music: {
             src: 'https://amp3.hunbei.com/mp3/IDo_ChenYiXun.mp3', // 音频资源链接
@@ -156,20 +156,11 @@ Page({
         }
     },
 
-    // 小程序可见时，拉取祝福语，并设置定时器每20s重新拉取一次祝福语，以及判断是否为单页模式
+    // 小程序可见时，拉取祝福语，并设置定时器每20s重新拉取一次祝福语
     onShow() {
         this.getGreetings()
 
         this.timer === null && (this.timer = setInterval(() => this.getGreetings(), 20000));
-
-        if (typeof this.data.isSinglePage !== 'boolean') { // 没有判断过是否单页模式，则判断一下
-            const {
-                scene
-            } = wx.getEnterOptionsSync()
-            this.setData({
-                isSinglePage: scene === 1154
-            })
-        }
     },
 
     // 小程序不可见时，取消自动拉取祝福语定时器

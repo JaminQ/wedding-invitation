@@ -253,17 +253,17 @@
     <view class="mb28">该小程序由新郎哥本人（也就是我了😎）独立完成开发，如有雷同，没错，我参考了婚贝上的一个模板，但是又不想付费，所以就干脆自己写一个，需要的小伙伴可以找我要源码哦😝</view>
     <view class="mb28">最后是喜闻乐见的撒狗粮环节✿✿ヽ(°▽°)ノ✿，首先出场的是我们的求婚视频☺️</view>
 
-    <!-- 如果要加视频号的话记得加上单页模式的判断，单页模式下不会渲染视频号卡片，而且连个占位都没有，要自行实现占位，也就是下面wx:else的view -->
-    <!-- 另外再吐槽一句，开发者工具里居然跟单页模式一样也不会渲染视频号卡片，醉了~ -->
-    <channel-video wx:if="{{ !isSinglePage }}" class="mb58" feed-token="token/AwXInC" />
-    <view wx:else class="channel-video-placeholder">请点击下方「前往小程序」按钮来查看</view>
+    <!-- 如果要加视频号的话可以用我封装好的channel组件，小程序个人号也能使用视频号卡片样式，参数和官方提供的channel-video基本一致 -->
+    <view class="mb58">
+        <channel finder-user-name="sphnQSkTBRwbRTK" feed-id="export/UzFfAgtgekIEAQAAAAAAPvkpzoO6XwAAAAstQy6ubaLX4KHWvLEZgBPE8YMMHW0eXf-HzNPgMJoermBiWqs9f6R0EzJgYBR1" poster="https://res.wx.qq.com/t/fed_upload/3da3dcc4-0add-4fb7-981f-587b291c1c69/propose.jpg" nickname="Jamin"></channel>
+    </view>
 
     <view class="mb28">然后当然少不了我们在苗寨拍的艺术照啦哈哈哈哈😄</view>
 
-    <!-- 如果要加视频号的话记得加上单页模式的判断，单页模式下不会渲染视频号卡片，而且连个占位都没有，要自行实现占位，也就是下面wx:else的view -->
-    <!-- 另外再吐槽一句，开发者工具里居然跟单页模式一样也不会渲染视频号卡片，醉了~ -->
-    <channel-video wx:if="{{ !isSinglePage }}" class="mb58" feed-token="token/A8yYlo" />
-    <view wx:else class="channel-video-placeholder">请点击下方「前往小程序」按钮来查看</view>
+    <!-- 如果要加视频号的话可以用我封装好的channel组件，小程序个人号也能使用视频号卡片样式，参数和官方提供的channel-video基本一致 -->
+    <view class="mb58">
+        <channel finder-user-name="sphnQSkTBRwbRTK" feed-id="export/UzFfAgtgekIEAQAAAAAAQCYj8jTRuAAAAAstQy6ubaLX4KHWvLEZgBPEwYN4ax0BbeKGzNPgMJoI4A03G3e3pJIH4mc7mzaX" poster="https://res.wx.qq.com/t/fed_upload/afdf01f1-13a2-431c-97ce-5af931731df4/artistic.jpeg" nickname="Jamin"></channel>
+    </view>
 
     <view class="mb28">好啦，狗粮撒到这里就差不多啦，剩下的我们留到婚礼上再呈现给大家吧，我们婚礼上见哦~💒👫🏻</view>
     <view>未完，待续</view>

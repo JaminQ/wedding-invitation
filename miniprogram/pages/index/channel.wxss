@@ -1,0 +1,47 @@
+.channel {
+    width: 480rpx;
+    height: 360rpx;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.channel-video-placeholder {
+    border: 2rpx solid #b8b8b8;
+    align-items: center;
+}
+
+.channel-poster {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.channel-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80rpx;
+    height: 80rpx;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 50%;
+}
+
+.channel-nickname {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    line-height: 80rpx;
+    padding: 0 30rpx;
+    display: flex;
+    align-items: center;
+}
+
+.channel-logo {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 14rpx;
+}
