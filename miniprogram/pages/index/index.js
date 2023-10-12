@@ -23,14 +23,14 @@ Page({
 
         // 以上变量都不用动，以下变量是需要手动修改的
 
-        // 背景音乐
+        // 背景音乐（默认用陈奕迅的《I DO》，想换的话自己去找音频资源，我是在「婚贝」上找的）
         music: {
             src: 'https://amp3.hunbei.com/mp3/IDo_ChenYiXun.mp3', // 音频资源链接
             name: 'I DO', // 歌名
             singer: '陈奕迅' // 歌手名
         },
 
-        // 酒店信息
+        // 酒店信息（通过页面上的「选择位置并获取定位信息」按钮可以获取定位信息，发布前记得把按钮注释起来）
         location: genLocation([{
             name: '婚宴酒店名XXXXXXXX',
             address: '详细地址XXXXXXXXXXXXXXX',
@@ -38,7 +38,7 @@ Page({
             longitude: 113.7241439819336
         }])[0],
 
-        // 图片信息
+        // 图片信息（其实就是婚纱照了）
         imgs: {
             // 封面图
             cover: 'https://res.wx.qq.com/t/fed_upload/459fb8da-b31a-420f-b8cc-f51126952685/cover.jpg',

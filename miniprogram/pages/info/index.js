@@ -9,11 +9,13 @@ const {
 
 Page({
     data: {
-        // 公告栏描述
-        desc: `帅哥靓女们都来看看，这里有「${publisher}」婚礼的第一手资料，接亲、婚宴细节全爆料！千万不要错过啊！！！`,
-
         // 新郎新娘联系方式
         couple,
+
+        // 以上变量都不用动，以下变量是需要手动修改的
+
+        // 公告栏描述
+        desc: `帅哥靓女们都来看看，这里有「${publisher}」婚礼的第一手资料，接亲、婚宴细节全爆料！千万不要错过啊！！！`,
 
         // 其余人员联系方式
         phone: [{
@@ -24,7 +26,7 @@ Page({
             number: 'XXXXXXXXXXX'
         }],
 
-        // 定位信息
+        // 定位信息（通过页面上的「选择位置并获取定位信息」按钮可以获取定位信息，发布前记得把按钮注释起来）
         location: genLocation([{
             name: '婚宴酒店：XXXXXXXX',
             address: '详细地址XXXXXXXXXXXXXXX',
@@ -32,7 +34,7 @@ Page({
             longitude: 113.7241439819336
         }]),
 
-        // PDF资料
+        // PDF资料（在云开发的「存储」里上传文件，就可以得到fileID了）
         files: [{
             name: '凌晨接亲时间表',
             fileID: 'cloud://online-xxxxxxxxx'
