@@ -9,9 +9,9 @@
 <!-- 使用自行实现的视频号模拟组件 -->
 <view wx:else class="channel" bindtap="openChannel">
     <image class="channel-poster" src="{{ poster }}" mode="aspectFit" />
-    <image class="channel-play" src="../../images/play.png" mode="aspectFit" />
+    <image class="channel-play" src="../../images/icon/play.png" mode="aspectFit" />
     <view class="channel-nickname">
-        <image class="channel-logo" src="../../images/channel.png" mode="aspectFit" />
+        <image class="channel-logo" src="../../images/icon/channel.png" mode="aspectFit" />
         <text>{{ nickname }}</text>
     </view>
 </view>

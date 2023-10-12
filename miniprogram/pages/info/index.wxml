@@ -6,14 +6,14 @@
         <view class="couple">
             <view wx:for="{{ couple }}" wx:key="name">
                 <image class="couple-cover" src="{{ item.image }}" mode="aspectFit" />
-                <button class="phone" bindtap="call" data-phone="{{ item.number }}"><image class="phone-icon" src="../../images/phone.png" mode="aspectFit" />联系{{ item.alias }}</button>
+                <button class="phone" bindtap="call" data-phone="{{ item.number }}"><image class="phone-icon" src="../../images/icon/phone.png" mode="aspectFit" />联系{{ item.alias }}</button>
             </view>
         </view>
 
         <view class="call-list">
             <view wx:for="{{ phone }}" wx:key="name" class="call-item">
                 <text>{{ item.name }}</text>
-                <button bindtap="call" data-phone="{{ item.number }}"><image class="phone-icon" src="../../images/phone.png" mode="aspectFit" /></button>
+                <button bindtap="call" data-phone="{{ item.number }}"><image class="phone-icon" src="../../images/icon/phone.png" mode="aspectFit" /></button>
             </view>
         </view>
     </view>
@@ -43,7 +43,7 @@
     <view class="part-main">
         <view class="file" wx:for="{{ files }}" wx:key="fileId" bindtap="openFile" data-index="{{ index }}">
             <text>{{ item.name }}</text>
-            <image src="../../images/pdf.png" mode="aspectFit" />
+            <image src="../../images/icon/pdf.png" mode="aspectFit" />
         </view>
     </view>
 </view>

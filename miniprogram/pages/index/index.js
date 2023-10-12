@@ -230,6 +230,23 @@ Page({
         })
     },
 
+    // 仅用于获取定位信息，获取后会打印到控制台并写入到粘贴板，正式发布时记得注释起来
+    chooseLocation() {
+        wx.chooseLocation({
+            success(res) {
+                wx.setClipboardData({
+                    data: JSON.stringify(res),
+                    success() {
+                        wx.showToast({
+                            title: '已写入剪贴板'
+                        })
+                        console.log(res)
+                    }
+                })
+            }
+        })
+    },
+
     // 呼叫
     call(e) {
         wx.makePhoneCall({

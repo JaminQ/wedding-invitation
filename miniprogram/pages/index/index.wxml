@@ -19,7 +19,7 @@
 
 <view class="music">
     <view class="music-controls {{ musicIsPaused ? 'paused' : '' }}" bindtap="toggleMusic">
-        <image src="../../images/music.png" mode="aspectFit" />
+        <image src="../../images/icon/music.png" mode="aspectFit" />
     </view>
     <view class="music-left">
         <view class="music-title">{{ music.name }} - {{ music.singer }}</view>
@@ -193,12 +193,15 @@
     </view>
     <map longitude="{{ location.longitude }}" latitude="{{ location.latitude }}" enable-zoom="{{ false }}" enable-scroll="{{ false }}" markers="{{ location.markers }}" />
     <view class="location-mask" bindtap="openLocation"></view>
+
+    <!-- 仅用于获取定位信息，获取后会打印到控制台并写入到粘贴板，正式发布时记得注释起来 -->
+    <button type="primary" size="mini" bindtap="chooseLocation">选择位置并获取定位信息</button>
 </view>
 
 <view class="phone mb100">
     <view class="phone-item" wx:for="{{ couple }}" wx:key="name">
         <image class="couple-cover" src="{{ item.image }}" mode="aspectFit" />
-        <button bindtap="call" data-phone="{{ item.number }}"><image src="../../images/phone.png" mode="aspectFit" />联系{{ item.alias }}</button>
+        <button bindtap="call" data-phone="{{ item.number }}"><image src="../../images/icon/phone.png" mode="aspectFit" />联系{{ item.alias }}</button>
     </view>
 </view>
 
@@ -249,7 +252,7 @@
 
 <!-- 彩蛋板块视乎个人情况决定要不要 -->
 <view class="egg tc">
-    <view class="egg-title">彩蛋<image src="../../images/egg.png" mode="aspectFit" /></view>
+    <view class="egg-title">彩蛋<image src="../../images/icon/egg.png" mode="aspectFit" /></view>
     <view class="mb28">该小程序由新郎哥本人（也就是我了😎）独立完成开发，如有雷同，没错，我参考了婚贝上的一个模板，但是又不想付费，所以就干脆自己写一个，需要的小伙伴可以找我要源码哦😝</view>
     <view class="mb28">最后是喜闻乐见的撒狗粮环节✿✿ヽ(°▽°)ノ✿，首先出场的是我们的求婚视频☺️</view>
 
@@ -277,18 +280,18 @@
     </view>
     <view class="controller">
         <view class="controller-btn">
-            <image bindtap="goPhone" src="../../images/phone.png" mode="widthFix" />
+            <image bindtap="goPhone" src="../../images/icon/phone.png" mode="widthFix" />
         </view>
         <view class="controller-btn">
-            <image bindtap="goWrite" src="../../images/write.png" mode="widthFix" />
+            <image bindtap="goWrite" src="../../images/icon/write.png" mode="widthFix" />
         </view>
         <view class="controller-btn">
-            <image bindtap="openLocation" src="../../images/go.png" mode="widthFix" />
+            <image bindtap="openLocation" src="../../images/icon/go.png" mode="widthFix" />
         </view>
     </view>
 </view>
 
 <!-- 公告栏入口 -->
 <view wx:if="{{ isManager }}" class="manager">
-    <image bindtap="goInfo" src="../../images/manager.png" mode="widthFix"/>
+    <image bindtap="goInfo" src="../../images/icon/manager.png" mode="widthFix"/>
 </view>

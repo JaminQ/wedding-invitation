@@ -4,7 +4,7 @@ exports.genLocation = location => location.map(item => Object.assign(item, {
         id: 1,
         latitude: item.latitude,
         longitude: item.longitude,
-        iconPath: '../../images/marker.png',
+        iconPath: '../../images/icon/marker.png',
         width: 32,
         height: 32
     }]
