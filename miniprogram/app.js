@@ -32,7 +32,8 @@ App({
     // 小程序启动时，初始化云开发环境
     onLaunch() {
         wx.cloud.init({
-            env: 'xxxxxxx' // 云开发环境ID，在云开发控制台里可以查看
+            env: 'xxxxxxx', // 云开发环境ID，在云开发控制台里可以查看
+            traceUser: true
         })
     },
 
