@@ -6,14 +6,22 @@ const {
 const MANAGER = ['']
 
 const APP = getApp()
+const isRemoved = APP.globalData.isRemoved
 
 Page({
     data: {
         ...APP.globalData,
         isManager: false, // 当前用户是否为管理员
         musicIsPaused: false, // 是否暂停背景音乐
-        greetings: [], // 祝福语列表
-        activeIdx: -1, // 祝福语轮播用，当前显示的祝福语索引值
+        greetings: isRemoved ? [ // 祝福语列表
+            // 云开发下架后显示的祝福语数据，可以在云开发环境销毁前把数据库的数据导出来并贴到这里
+            {
+                name: '新郎 & 新娘',
+                num: 2,
+                greeting: '欢迎大家来见证我们的幸福时刻，我们婚礼上见哦~'
+            }
+        ] : [],
+        activeIdx: isRemoved ? 0 : -1, // 祝福语轮播用，当前显示的祝福语索引值
         form: { // 表单信息
             name: '',
             num: '',
@@ -111,25 +119,27 @@ Page({
         this.music = null
         this.isSubmit = false
 
-        const db = wx.cloud.database()
-        db.collection('surveys').get({
-            success: res => {
-                if (res.data.length) {
-                    const {
-                        name,
-                        num,
-                        greeting
-                    } = res.data[0]
-                    this.setData({
-                        form: {
+        if (!isRemoved) {
+            const db = wx.cloud.database()
+            db.collection('surveys').get({
+                success: res => {
+                    if (res.data.length) {
+                        const {
                             name,
                             num,
                             greeting
-                        }
-                    })
+                        } = res.data[0]
+                        this.setData({
+                            form: {
+                                name,
+                                num,
+                                greeting
+                            }
+                        })
+                    }
                 }
-            }
-        })
+            })
+        }
 
         this.lunisolarDate = this.selectComponent('#calendar').lunisolarDate
         this.setData({
@@ -158,9 +168,11 @@ Page({
 
     // 小程序可见时，拉取祝福语，并设置定时器每20s重新拉取一次祝福语
     onShow() {
-        this.getGreetings()
+        if (!isRemoved) {
+            this.getGreetings()
 
-        this.timer === null && (this.timer = setInterval(() => this.getGreetings(), 20000));
+            this.timer === null && (this.timer = setInterval(() => this.getGreetings(), 20000));
+        }
     },
 
     // 小程序不可见时，取消自动拉取祝福语定时器
@@ -277,48 +289,54 @@ Page({
                     icon: 'error'
                 })
             } else {
-                this.isSubmit = true
-                const wording = this.data.form.name ? '更新' : '提交';
-                wx.showLoading({
-                    title: `${wording}中`
-                })
-                wx.cloud.callFunction({
-                    name: 'surveys',
-                    data: e.detail.value
-                }).then(({
-                    result: {
-                        name,
-                        num,
-                        greeting,
-                        _id
-                    }
-                }) => {
-                    const greetings = this.data.greetings
-                    !greetings.some(item => {
-                        if (item._id === _id) { // 如果找到了该祝福语，更新之
-                            item.greeting = greeting
-                            return true
-                        }
-                        return false
-                    }) && greetings.push({ // 如果没有找到，追加之
-                        name,
-                        greeting,
-                        _id
+                if (isRemoved) {
+                    wx.showToast({
+                        title: '婚礼结束了哦~'
                     })
-                    this.setData({
-                        form: {
+                } else {
+                    this.isSubmit = true
+                    const wording = this.data.form.name ? '更新' : '提交';
+                    wx.showLoading({
+                        title: `${wording}中`
+                    })
+                    wx.cloud.callFunction({
+                        name: 'surveys',
+                        data: e.detail.value
+                    }).then(({
+                        result: {
                             name,
                             num,
-                            greeting
-                        },
-                        greetings
+                            greeting,
+                            _id
+                        }
+                    }) => {
+                        const greetings = this.data.greetings
+                        !greetings.some(item => {
+                            if (item._id === _id) { // 如果找到了该祝福语，更新之
+                                item.greeting = greeting
+                                return true
+                            }
+                            return false
+                        }) && greetings.push({ // 如果没有找到，追加之
+                            name,
+                            greeting,
+                            _id
+                        })
+                        this.setData({
+                            form: {
+                                name,
+                                num,
+                                greeting
+                            },
+                            greetings
+                        })
+                        this.isSubmit = false
+                        wx.showToast({
+                            title: `${wording}成功`,
+                            icon: 'success'
+                        })
                     })
-                    this.isSubmit = false
-                    wx.showToast({
-                        title: `${wording}成功`,
-                        icon: 'success'
-                    })
-                })
+                }
             }
         }
     },

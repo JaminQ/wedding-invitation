@@ -4,7 +4,8 @@ const {
 
 const {
     couple,
-    publisher
+    publisher,
+    isRemoved
 } = getApp().globalData
 
 Page({
@@ -88,25 +89,31 @@ Page({
 
     // 下载并打开文件
     openFile(e) {
-        wx.showLoading({
-            title: '加载中'
-        })
-        const {
-            fileID
-        } = this.data.files[e.currentTarget.dataset.index]
-        wx.cloud.downloadFile({
-            fileID,
-            success: res => {
-                wx.openDocument({
-                    filePath: res.tempFilePath,
-                    showMenu: true,
-                    fileType: 'pdf',
-                    success: () => {
-                        wx.hideLoading()
-                    }
-                })
-            }
-        })
+        if (isRemoved) {
+            wx.showToast({
+                title: '云开发下架咯~'
+            })
+        } else {
+            wx.showLoading({
+                title: '加载中'
+            })
+            const {
+                fileID
+            } = this.data.files[e.currentTarget.dataset.index]
+            wx.cloud.downloadFile({
+                fileID,
+                success: res => {
+                    wx.openDocument({
+                        filePath: res.tempFilePath,
+                        showMenu: true,
+                        fileType: 'pdf',
+                        success: () => {
+                            wx.hideLoading()
+                        }
+                    })
+                }
+            })
+        }
     },
 
     // 分享到会话

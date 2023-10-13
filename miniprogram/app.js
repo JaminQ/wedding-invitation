@@ -1,5 +1,7 @@
 App({
     globalData: {
+        // isRemoved: new Date() * 1 >= 1699401600000, // 云开发是否已下架，用下架时间戳来控制自动下架
+        isRemoved: false, // 云开发是否已下架，手动控制
         isSinglePage: null, // 是否单页模式
 
         // 以上变量都不用动，以下变量是需要手动修改的
@@ -31,7 +33,7 @@ App({
 
     // 小程序启动时，初始化云开发环境
     onLaunch() {
-        wx.cloud.init({
+        !this.globalData.isRemoved && wx.cloud.init({
             env: 'xxxxxxx', // 云开发环境ID，在云开发控制台里可以查看
             traceUser: true
         })
