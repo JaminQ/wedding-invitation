@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-      "calendar": "./calendar",
-      "channel": "./channel"
-  }
-}
