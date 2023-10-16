@@ -2,11 +2,11 @@
 
 我的婚礼邀请函小程序，可以搜「金钱组合的婚礼邀请函」或扫描下方二维码来查看。
 
-<img src="https://res.wx.qq.com/t/fed_upload/65411b5d-eed6-4cf7-bfc2-6fdb5fe4a5d6/qrcode.jpg" alt="预览图" width="200px" />
+<img src="https://raw.githubusercontent.com/JaminQ/wedding-invitation/imgs/qrcode.jpg" alt="预览图" width="200px" />
 
 ## 以下是预览图，撒一波狗粮
 
-<img src="https://res.wx.qq.com/t/fed_upload/16e305bb-0c8d-44d4-bf79-ab0c20a32f2c/example.jpg" alt="预览图" width="320px" />
+<img src="https://raw.githubusercontent.com/JaminQ/wedding-invitation/imgs/example.jpg" alt="预览图" width="320px" />
 
 ## QA
 
@@ -39,7 +39,7 @@ A: 其实还好，我是基于微信小程序开发的，部署发布啥的都�
 
 为了方便大家抄作业，我对自己的小程序做了一些代码调整优化，搞了个像「模板」一样的case出来，图片建议尺寸啥的我都标好了：
 
-<img src="https://res.wx.qq.com/t/fed_upload/ea1b4282-3a32-462d-a8ef-8caf22a22f9c/IMG_6037.jpg" alt="模板预览图" width="320px" />
+<img src="https://raw.githubusercontent.com/JaminQ/wedding-invitation/imgs/preview.jpg" alt="模板预览图" width="320px" />
 
 理论上大家只要像做填空题一样把自己的婚礼信息填进去就可以了，需要修改两个文件，分别是 [app.js](./miniprogram/app.js) 和 [index.js](./miniprogram/pages/index/index.js) ，另外还有个彩蛋模块因为我懒得调整了，代码直接就放在 [index.wxml](./miniprogram/pages/index/index.wxml) 里。
 
@@ -74,7 +74,7 @@ A: 其实还好，我是基于微信小程序开发的，部署发布啥的都�
 
 港真，我觉得这个公告栏才是最有用的，接亲和婚礼那段时间是最忙最多事情要搞的，需要跟很多工作人员（婚策、摄影摄像、司仪、化妆师、酒店经理、伴郎团、伴娘团等等等等）去同步信息。而我又是非常懒的一个人，所以我就搞了个公告栏来展示所有信息，免去了口口相传的麻烦。公告栏长这样：
 
-<img src="https://res.wx.qq.com/t/fed_upload/4b2fba05-33b0-457c-86da-33b9b29d6b21/公告栏分割版.png" alt="公告栏预览图" width="1000px" />
+<img src="https://raw.githubusercontent.com/JaminQ/wedding-invitation/imgs/announcement.png" alt="公告栏预览图" width="1000px" />
 
 配置起来也像填空一样简单。
 
@@ -90,7 +90,7 @@ A: 其实还好，我是基于微信小程序开发的，部署发布啥的都�
 
 由于我是蜘蛛侠迷弟，所以入口长这样：
 
-<img src="https://res.wx.qq.com/t/fed_upload/8f3d00d5-f394-4c7f-947c-153ab6de1814/IMG_6038.jpg" alt="公告栏入口" width="320px" />
+<img src="https://raw.githubusercontent.com/JaminQ/wedding-invitation/imgs/entry.jpg" alt="公告栏入口" width="320px" />
 
 理论上这个公告栏入口没必要让所有人都看到，所以我加了个管理员的逻辑，在 [index.js](./miniprogram/pages/index/index.js) 里有个 `MANAGER` 数组，在这个数组里加上要开放人员的 `openid` 就可以了，这个 `openid` 可以在云开发管理页找到，也可以通过云函数 `greetings` 的返回值 `openid` 来查看，还可以在这个文件的 `getGreetings` 方法里通过打印 `openid` 变量来查看。
 
