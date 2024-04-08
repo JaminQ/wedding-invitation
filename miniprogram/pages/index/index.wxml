@@ -276,7 +276,7 @@
 <!-- 祝福语轮播以及底部快捷跳转 -->
 <view class="greetings">
     <view class="greetings-list">
-        <view class="greetings-item {{ activeIdx === index ? 'active' : '' }}" wx:for="{{ greetings }}" wx:key="_id" bind:animationend="onAnimationend"><text class="greetings-name">{{ item.name }}：</text>{{ item.greeting }}</view>
+        <view class="greetings-item {{ activeIdx === index ? 'active' : '' }}" wx:for="{{ greetings }}" wx:key="_id" bind:animationend="onAnimationend"><text class="greetings-name">{{ item.name }}：</text>{{ item.greeting || '新婚快乐' }}</view>
     </view>
     <view class="controller">
         <view class="controller-btn">

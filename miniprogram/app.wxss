@@ -15,5 +15,4 @@ page > view {
 .couple-cover {
     width: 268rpx;
     height: 426rpx;
-    -webkit-mask-box-image-source: url(https://h5cdn.hunbei.com/figure/2022-02-11_6205f3f563870.png);
 }

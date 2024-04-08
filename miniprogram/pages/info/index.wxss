@@ -46,7 +46,7 @@
     height: 56rpx;
     line-height: 1;
     font-weight: normal;
-    margin-top: -52rpx;
+    margin-top: -30rpx;
     padding: 16rpx 0;
     display: flex;
     justify-content: center;
