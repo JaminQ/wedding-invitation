@@ -205,7 +205,7 @@
     </view>
 </view>
 
-<form bindsubmit="submit">
+<form wx:if="{{ magic }}" bindsubmit="submit">
     <view class="form tc mb100">
         <view>
             <text>*</text>
@@ -251,7 +251,7 @@
 </view>
 
 <!-- 彩蛋板块视乎个人情况决定要不要 -->
-<view class="egg tc">
+<view wx:if="{{ showEggs }}" class="egg tc">
     <view class="egg-title">彩蛋<image src="../../images/icon/egg.png" mode="aspectFit" /></view>
     <view class="mb28">该小程序由新郎哥本人（也就是我了😎）独立完成开发，如有雷同，没错，我参考了婚贝上的一个模板，但是又不想付费，所以就干脆自己写一个，需要的小伙伴可以找我要源码哦😝</view>
     <view class="mb28">最后是喜闻乐见的撒狗粮环节✿✿ヽ(°▽°)ノ✿，首先出场的是我们的求婚视频☺️</view>
@@ -274,7 +274,7 @@
 </view>
 
 <!-- 祝福语轮播以及底部快捷跳转 -->
-<view class="greetings">
+<view wx:if="{{ magic }}" class="greetings">
     <view class="greetings-list">
         <view class="greetings-item {{ activeIdx === index ? 'active' : '' }}" wx:for="{{ greetings }}" wx:key="_id" bind:animationend="onAnimationend"><text class="greetings-name">{{ item.name }}：</text>{{ item.greeting || '新婚快乐' }}</view>
     </view>

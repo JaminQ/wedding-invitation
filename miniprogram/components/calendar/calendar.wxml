@@ -1,18 +1,18 @@
 <view class="calendar">
     <view class="calendar-year">{{ year }}</view>
     <view class="calendar-main">
-        <view class="calendar-month-day">{{ month }} <text>/</text> {{ day }}</view>
+        <view class="calendar-month-day">{{ month }} <text class="calendar-month-day-sep">/</text> {{ day }}</view>
         <view class="calendar-line calendar-week">
-            <text>日</text>
-            <text>一</text>
-            <text>二</text>
-            <text>三</text>
-            <text>四</text>
-            <text>五</text>
-            <text>六</text>
+            <text class="calendar-item">日</text>
+            <text class="calendar-item">一</text>
+            <text class="calendar-item">二</text>
+            <text class="calendar-item">三</text>
+            <text class="calendar-item">四</text>
+            <text class="calendar-item">五</text>
+            <text class="calendar-item">六</text>
         </view>
         <view class="calendar-line" wx:for="{{ list }}" wx:key="*this" wx:for-item="week">
-            <text wx:for="{{ week }}" wx:key="*this">
+            <text class="calendar-item" wx:for="{{ week }}" wx:key="*this">
                 <block wx:if="{{ item === dayNumber }}">
                     <text class="calendar-current">{{ item }}</text>
                     <text class="calendar-current-dot"></text>

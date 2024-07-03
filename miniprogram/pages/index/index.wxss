@@ -1,5 +1,5 @@
-@import './base.wxss';
-@import './animation.wxss';
+@import '../../common/base.wxss';
+@import '../../common/animation.wxss';
 
 .title {
     font-size: 36rpx;

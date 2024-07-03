@@ -1,6 +1,6 @@
 const {
     genLocation
-} = require('../common')
+} = require('../../common/utils')
 
 const {
     couple,

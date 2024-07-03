@@ -34,7 +34,7 @@
     margin-bottom: 60rpx;
 }
 
-.calendar-month-day text {
+.calendar-month-day .calendar-month-day-sep {
     font-size: 32rpx;
 }
 
@@ -48,7 +48,7 @@
     margin-top: 16rpx;
 }
 
-.calendar-line text {
+.calendar-line .calendar-item {
     width: 56rpx;
     height: 44rpx;
     line-height: 44rpx;
@@ -61,7 +61,7 @@
     color: white;
 }
 
-.calendar-line text .calendar-current-dot {
+.calendar-line .calendar-current-dot {
     position: absolute;
     display: block;
     width: 56rpx;

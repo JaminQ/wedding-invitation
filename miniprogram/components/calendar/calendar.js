@@ -1,8 +1,8 @@
-const lunisolar = require('../lunisolar')
+const lunisolar = require('../../common/lunisolar')
 const {
     addZero,
     getMonthDayCount
-} = require('../common')
+} = require('../../common/utils')
 
 Component({
 	properties: {

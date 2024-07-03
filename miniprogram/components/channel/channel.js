@@ -29,7 +29,8 @@ Component({
 	},
 
 	data: {
-        isSinglePage: APP.globalData.isSinglePage // 是否单页模式
+        isSinglePage: APP.globalData.isSinglePage, // 是否单页模式
+        magic: APP.globalData.magic // 魔法开关
     },
     
     pageLifetimes: {

@@ -1,6 +1,6 @@
 const {
     genLocation
-} = require('../common')
+} = require('../../common/utils')
 
 // 管理员openid列表，可以在云开发管理页找到，是管理员的话可以看到公告栏页面入口，也可以通过云函数greetings的返回值openid来查看，还可以在本文件getGreetings方法里通过打印openid变量来查看
 const MANAGER = ['']
@@ -13,14 +13,6 @@ Page({
         ...APP.globalData,
         isManager: false, // 当前用户是否为管理员
         musicIsPaused: false, // 是否暂停背景音乐
-        greetings: isRemoved ? [ // 祝福语列表
-            // 云开发下架后显示的祝福语数据，可以在云开发环境销毁前把数据库的数据导出来并贴到这里
-            {
-                name: '新郎 & 新娘',
-                num: 2,
-                greeting: '欢迎大家来见证我们的幸福时刻，我们婚礼上见哦~'
-            }
-        ] : [],
         activeIdx: isRemoved ? 0 : -1, // 祝福语轮播用，当前显示的祝福语索引值
         form: { // 表单信息
             name: '',
@@ -30,6 +22,23 @@ Page({
         weddingTimeStr: [], // 格式化的婚礼日期列表
 
         // 以上变量都不用动，以下变量是需要手动修改的
+
+        // 是否显示彩蛋（由于彩蛋我没有改动，显示的还是我本人的内容，所以我把它默认隐藏起来，方便别人抄作业）
+        showEggs: false,
+
+        // 祝福语列表
+        greetings: isRemoved ? [
+            // 云开发下架后显示的祝福语数据，可以在云开发环境销毁前把数据库的数据导出来并贴到这里
+            {
+                name: '新郎 & 新娘',
+                num: 2,
+                greeting: '欢迎大家来见证我们的幸福时刻，我们婚礼上见哦~'
+            }, {
+                name: '伴郎 & 伴娘',
+                num: 2,
+                greeting: '祝帅气的新郎和美丽的新娘新婚快乐~白头偕老💐'
+            }
+        ] : [],
 
         // 背景音乐（默认用陈奕迅的《I DO》，想换的话自己去找音频资源，我是在「婚贝」上找的）
         music: {
