@@ -32,9 +32,6 @@
                 <view class="map-mask" bindtap="openLocation" data-index="{{ index }}"></view>
             </view>
         </view>
-
-        <!-- 仅用于获取定位信息，获取后会打印到控制台并写入到粘贴板，正式发布时记得注释起来 -->
-        <button type="primary" size="mini" bindtap="chooseLocation">选择位置并获取定位信息</button>
     </view>
 </view>
 
