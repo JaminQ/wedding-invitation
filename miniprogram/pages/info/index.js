@@ -27,7 +27,7 @@ Page({
             number: 'XXXXXXXXXXX'
         }],
 
-        // 定位信息（通过页面上的「选择位置并获取定位信息」按钮可以获取定位信息，发布前记得把按钮注释起来）
+        // 定位信息（可以去高德地图或腾讯地图网页版上把经纬度爬下来）
         location: genLocation([{
             name: '婚宴酒店：XXXXXXXX',
             address: '详细地址XXXXXXXXXXXXXXX',
